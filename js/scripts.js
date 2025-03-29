@@ -90,19 +90,14 @@ generateSum ([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
 // "Número: 2 - Cuadrado: 4 - Cubo: 8".
 
 
+const detailedReports = (numbers) => {
 
+    const numberCubed = numbers.forEach(number => {
+        console.log(`Número: ${number} - Cuadrado: ${Math.pow(number, 2)} - Cubo: ${Math.pow(number, 3)}`);
+    })
 
-
-
-
-
-
-
-
-
-
-
-
+}
+detailedReports([2, 3, 4, 5, 1, 6, 7, 8, 9, 10])
 
 // 7️⃣ Sabrina quiere modificar un mensaje secreto.
 // Crea una función que reciba una palabra e imprima por consola esa palabra pero con las vocales en mayúscula.
@@ -165,6 +160,17 @@ filterWordsWith4LettersLength(['hola', 'adios', 'gato', 'perro', 'casa'], 4)
 // Crea una función que reciba un array de números y un número, y devuelva un array con los números que sean divisores de ese número.
 // Ejemplo: Si recibe [1, 2, 3, 4, 5, 6] y 2, deberá imprimir [1, 2, 4, 6].
 
+const checkDividers = (dividendNumbers, dividerNumber) => {
+
+    const divisorNumbers = dividendNumbers.filter(number => {
+        return number % dividerNumber === 0
+    })
+
+    console.log(divisorNumbers);
+    
+}
+checkDividers([1, 2, 3, 4, 5, 6], 2)
+
 
 
 // 1️⃣1️⃣ Sabrina está seleccionando usuarios.
@@ -179,22 +185,116 @@ filterWordsWith4LettersLength(['hola', 'adios', 'gato', 'perro', 'casa'], 4)
 // Ejemplo salida:
 // Usuarios menores de 30: John, Bob
 
+const checkIfUserHasLessThan30Years = (users) => {
+
+    //Pero si le pido que me devuelva solo el nombre por qué no funciona
+    // const filter30YearsOldUsers = users.filter(user => {
+    //     if (user.age < 30){
+    //         return user.name
+    //     }
+    // })
+
+    const filter30YearsOldUsers = users.filter(user => {
+        return user.age < 30
+    })
+    
+    const filterNameUsers = filter30YearsOldUsers.map(user => {
+        return user.name
+    })
+
+    console.log(`Usuarios menores de 30: ${filterNameUsers}`);
+
+}
+checkIfUserHasLessThan30Years(
+    [
+    { name: 'John', age: 25 },
+    { name: 'Jane', age: 30 },
+    { name: 'Bob', age: 20 }
+    ]
+)
+
 // 1️⃣2️⃣ Macarena quiere comprobar números pares.  
 // Crea una función que reciba un array con 5 números y te diga si todos son pares o no.
 // Ejemplo: Si recibe [2, 4, 6, 8, 10], deberá impimir Todos son pares.
+
+const findOutPeer = (numbers) => {
+
+    const filterPeerNumbers = numbers.every(number => {
+        return number % 2 === 0
+    })
+    
+    filterPeerNumbers === true ? 
+    console.log(`Todos son pares`) :
+    console.log(`No todos son pares`)
+    
+    
+}
+findOutPeer([2, 6, 8, 10, 6])
+
 
 // 1️⃣3️⃣ Abby quiere ordenar palabras por longitud.  
 // Crea una función que reciba un array de 5 palabras y las ordene en base a su longitud, de menor a mayor.
 // Ejemplo: Si recibe ["cielo", "sol", "estrella", "luz", "universo"], deberá imprimir ["sol", "luz", "cielo", "estrella", "universo"].
 
+const orderListBasedOnLenght = (words) => {
+
+    const orderedListBasedOnLenght = words.sort((a, b) => {
+        return a.length - b.length
+    })
+
+    console.log(orderedListBasedOnLenght);
+}
+orderListBasedOnLenght(["cielo", "sol", "estrella", "luz", "universo"])
+
 // 1️⃣4️⃣ Camila quiere invertir palabras.  
 // Crea una función que reciba una palabra e imprima la misma palabra en orden inverso conservando las mayúsculas y minúsculas. A Camila no le gusta el método reverse(), así que quiere hacerlo de otra manera 😊.
 // Ejemplo: Si recibe "Mariposas" deberá imprimir "sasopiraM".
+
+const reverseWordList = (word) => {
+
+    const splitWord = word.split('')
+
+    const convertLetterToPosition = splitWord.map((letter, position) => {
+        return position
+    })
+
+    console.log(convertLetterToPosition);
+    
+    
+    const reverseWord = convertLetterToPosition.sort((a, b) => {
+        return b - a
+        
+    })
+    console.log(reverseWord);
+
+    const asignPositionToNumber = reverseWord.map(position => {
+        return position = word
+    })
+    
+    console.log(asignPositionToNumber);
+    
+}
+reverseWordList('Mariposa')
 
 // 💪 Desafío Extra 1:
 // Bego quiere simplificar un array de números de dos dígitos sumando sus dígitos.
 // Crea una función que reciba un array de 5 números de dos dígitos y devuelva un array con la suma de los dígitos.
 // Ejemplo: Si recibe [21, 34, 87, 10, 28], deberá imprimir [3, 7, 15, 1, 10].
+
+const sumOfTwoDigits = (numbers) => {
+
+    const convertNumberToString = numbers.map(number => {
+        return number.toString()
+    })
+
+    console.log(convertNumberToString);
+
+    
+
+}
+sumOfTwoDigits([21, 34, 87, 10, 28])
+
+
 
 // 💪 Desafío Extra 2:
 // Macarena quiere borrar usuarios específicos.
@@ -208,3 +308,15 @@ filterWordsWith4LettersLength(['hola', 'adios', 'gato', 'perro', 'casa'], 4)
 // ];
 
 // Ejemplo: Si recibe "user003", el array quedará sin Pedro.
+
+
+const eraseUsers = (users) => {
+
+}
+eraseUsers([
+    { id: "user001", name: "Juan", surname: "Pérez", age: 30 },
+    { id: "user002", name: "María", surname: "González", age: 25 },
+    { id: "user003", name: "Pedro", surname: "Sánchez", age: 35 },
+    { id: "user004", name: "Ana", surname: "Martínez", age: 28 },
+    { id: "user005", name: "Luis", surname: "López", age: 40 }
+    ])
