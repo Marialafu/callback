@@ -12,13 +12,9 @@
 
 const sistemData = (numbers) => {
 
-    const multiplyNumber = numbers.map((number, position) => {
-        return number * position
+    const multiplyNumber = numbers.forEach((number, position) => {
+        console.log(`${number * position} - ${number}`);
     })
-
-    const results = multiplyNumber.forEach((number, position) => {
-        console.log(`${number} - ${position}`); 
-    });
 }
 sistemData([2, 5, 8])
 
@@ -61,13 +57,13 @@ generateUpperCaseWords(["hola", "mundo"])
 const filterIngredientsList = (ingredients, letter) => {
 
     const filterListBasedOnLetter = ingredients.filter(ingredient => {
-        return ingredient.charAt(0) === letter.toUpperCase() || ingredient.charAt(0) === letter.toLowerCase()
+        return ingredient.toUpperCase().charAt(0) === letter.toUpperCase()
     })
 
     console.log(filterListBasedOnLetter);
 
 }
-filterIngredientsList(["Manzana", "Melón", "Pera", "Sandía"], 'M')
+filterIngredientsList(["manzana", "Melón", "Pera", "Sandía"], 'm')
 
 // 5️⃣ Camila está recopilando datos numéricos.
 // Crea una función que reciba un array de 10 números e imprima por consola la suma de todos los valores del array.
@@ -312,6 +308,7 @@ sumOfTwoDigits([21, 34, 87, 10, 28])
 
 const eraseUsers = (users) => {
 
+    
 }
 eraseUsers([
     { id: "user001", name: "Juan", surname: "Pérez", age: 30 },
